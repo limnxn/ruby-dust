@@ -1,0 +1,46 @@
+FROM alpine:latest
+
+ENV APP_PATH=/app
+
+RUN apk update && \
+apk upgrade && \
+apk add --no-cache \
+bash \
+build-base \
+chromium \
+chromium-chromedriver \
+curl-dev \
+docker \
+docker-compose \
+docker-cli \
+docker-cli-compose \
+gcc \
+gfortran \
+git \
+g++ \
+imagemagick \
+imagemagick-dev \
+imagemagick-libs \
+mysql-client \
+mysql-dev \
+openssl \
+pkgconfig \
+ruby \
+ruby-bundler \
+ruby-dev \
+ruby-io-console \
+ruby-irb \
+ruby-rdoc \
+ttf-freefont \
+tzdata \
+udev \
+vim
+
+WORKDIR $APP_PATH
+
+COPY ./src/Gemfile $APP_PATH
+COPY ./src/Gemfile.lock $APP_PATH
+RUN bundle install
+RUN bundle update
+
+CMD ["top"]

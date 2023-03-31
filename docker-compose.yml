@@ -1,0 +1,30 @@
+services:
+  alpine:
+    container_name: alpine_gametrend
+    build:
+      context: ./alpine
+      dockerfile: dockerfile-alpine
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - ./alpine/src:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  mysql:
+    container_name: mysql_gametrend
+    build:
+      context: ./mysql
+      dockerfile: dockerfile-mysql
+    environment:
+      TZ: Asia/Tokyo
+      MYSQL_DATABASE: gametrend
+      MYSQL_USER: test
+      MYSQL_PASSWORD: passw0rd
+      MYSQL_ROOT_PASSWORD: passw0rd
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./mysql/dumps:/var/db
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
