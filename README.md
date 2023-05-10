@@ -9,13 +9,13 @@ Visualize the sales ranking of social games on Google Play and DMM GAMES.
 ### Migration
 
 ```bash
-$ docker-compose exec alpine ruby activerecord_migration.rb
+$ docker compose exec alpine ruby activerecord_migration.rb
 ```
 
 ### Backup
 
 ```bash
-$ docker-compose exec mysql sh -c 'mysqldump -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE > /var/db/$(date +%y%m%d)_$MYSQL_DATABASE.sql'
+$ docker compose exec mysql sh -c 'mysqldump -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE > /var/db/$(date +%y%m%d)_$MYSQL_DATABASE.sql'
 ```
 
 ## Crontab
@@ -23,17 +23,17 @@ $ docker-compose exec mysql sh -c 'mysqldump -uroot -p$MYSQL_ROOT_PASSWORD $MYSQ
 ### Add
 
 ```bash
-$ docker-compose exec alpine crontab jobs/scraping_job.sh
+$ docker compose exec alpine crontab jobs/scraping_job.sh
 ```
 
 ### List
 
 ```bash
-$ docker-compose exec alpine crontab -l
+$ docker compose exec alpine crontab -l
 ```
 
 ### Run
 
 ```bash
-$ docker-compose exec alpine crond -f
+$ docker compose exec alpine crond -f
 ```
