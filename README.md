@@ -10,13 +10,9 @@ each insight glows briefly — but tells a story worth studying.
 
 ## MySQL
 
-### Migration
-
 ```bash
 $ docker compose exec alpine ruby activerecord_migration.rb
 ```
-
-### Backup
 
 ```bash
 $ docker compose exec mysql sh -c 'mysqldump -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE > /var/db/$(date +%y%m%d)_$MYSQL_DATABASE.sql'
