@@ -1,10 +1,14 @@
 # RubyDust
 
-## Introduction
+_"Tracing trends in games — one glimmer at a time."_
 
-Visualize the sales ranking of social games on Google Play and DMM GAMES.
+RubyDust is a game trend analysis toolkit,  
+written in Ruby, for those who seek patterns in the stardust of data.
 
-## Database
+Like fragments of meteor trails,  
+each insight glows briefly — but tells a story worth studying.
+
+## MySQL
 
 ### Migration
 
@@ -18,21 +22,15 @@ $ docker compose exec alpine ruby activerecord_migration.rb
 $ docker compose exec mysql sh -c 'mysqldump -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE > /var/db/$(date +%y%m%d)_$MYSQL_DATABASE.sql'
 ```
 
-## Crontab
-
-### Add
+## Cron
 
 ```bash
 $ docker compose exec alpine crontab jobs/scraping_job.sh
 ```
 
-### List
-
 ```bash
 $ docker compose exec alpine crontab -l
 ```
-
-### Run
 
 ```bash
 $ docker compose exec alpine crond -f
