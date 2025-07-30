@@ -44,7 +44,7 @@ List all scheduled cron jobs:
 $ docker compose exec alpine crontab -l
 ```
 
-🚀 Start Cron Daemon
+### 🚀 Start Cron Daemon
 
 Begin running cron tasks in foreground:
 
