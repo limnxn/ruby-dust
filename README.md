@@ -8,6 +8,8 @@ written in Ruby, for those who seek patterns in the stardust of data.
 Like fragments of meteor trails,  
 each insight glows briefly — but tells a story worth studying.
 
+---
+
 ## ⚙️ Database Operations
 
 ### 🔄 Run Migration
